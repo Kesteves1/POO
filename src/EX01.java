@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * original  era  4-8-15-16-23-42,  deve  ficar  42-23-16-15-8-4  após  a  execução  do  segundo  método.  Escreva  um 
  * programa que execute e teste os dois métodos. 
  */
-public class App {
+public class EX01 {
 
     
 
