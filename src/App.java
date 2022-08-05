@@ -1,14 +1,26 @@
 import java.util.function.Function;
+import java.io.FileReader;
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
+/**
+ * 01  -  Escreva  dois  métodos  em  Java:  o  primeiro  deve  ser  utilizado  para  preencher  um  vetor  de  6  números  inteiros  a 
+ * partir  da  entrada  do  usuário.  O  segundo  deve  inverter  as  posições  dos  números  do  vetor.  Por  exemplo,  se  o  vetor 
+ * original  era  4-8-15-16-23-42,  deve  ficar  42-23-16-15-8-4  após  a  execução  do  segundo  método.  Escreva  um 
+ * programa que execute e teste os dois métodos. 
+ */
 public class App {
+
     
-    public static void clear(){ 
+
+    public static void clear() { 
 
         System.out.print("\033[H\033[2J"); 
         System.out.flush(); 
     } 
 
+    
     static int[] createArray(){
         int[] arr = new int[6];
         Scanner key = new Scanner(System.in);
@@ -22,18 +34,39 @@ public class App {
         return arr;
     }
 
-    static int[] invertArray(int[] array) {
-        int[] aux = new int[array.length];
+    static Stack invertArray(int[] array) {
+        Stack pilha = new Stack(); 
 
-        for (int i=0; i<array.length; i++) {
-            aux[i] = array[i];
+        for (int i : array) {
+            pilha.push(i);
         }
-        int j = 5;
-        for (int i = 0; i < 6; i++) {
-            array[i] = aux[j];
-            j--;
+
+        return pilha; 
+    }
+    static int[] readFile(String path) throws Exception {
+        
+        Scanner arq = new Scanner(new FileReader(path));
+        String valor, aux;
+        int[] val = new int[6];
+        int i = 0;
+
+        while (arq.hasNext()){
+            valor = arq.next();
+            StringTokenizer t = new StringTokenizer(valor, ";");
+            aux = t.nextToken();
+            val[i] = Integer.parseInt(aux);
+            i++;
         }
-        return array; 
+        return val;
+    }
+
+    static void viewer(Stack pilha){
+        for (int i=0; i<6; i++) {
+            if(i == 5)
+                System.out.println(pilha.pop());
+            else
+                System.out.print(pilha.pop() + ", ");
+        }
     }
     /**
         01 - Escreva dois métodos em Java: o primeiro deve ser utilizado para preencher um vetor de 6 números inteiros a partir da entrada do usuário. O segundo deve inverter as posições dos números do vetor. Por exemplo, se o vetor original era 4-8-15-16-23-42, deve ficar 43-23-16-15-8-4 após a execução do segundo método. Escreva um
@@ -69,16 +102,15 @@ public class App {
      */
     public static void main(String[] args) throws Exception {
         clear();
+        String path = "./arquivo.txt";
         int[] arry = createArray();
 
-        for(int i=0; i < 6; i++) {
-            System.out.println(arry[i]);
-        }
+        //Entrada pelo Usuário
+        System.out.println("Entrada pelo Usuário -> Vetor invertido: ");
+        viewer(invertArray(arry));
 
-        int[]array = invertArray(arry);
-        System.out.println("Vetor invertido: ");
-        for (int arr : array) {
-            System.out.print(arr + ", ");
-        }
+        System.out.println("Entrada por arquivo -> Vetor invertido: ");
+        //Entrada por arquivo
+        viewer(invertArray(readFile(path)));
     }
 }
