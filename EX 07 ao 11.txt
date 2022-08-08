@@ -1,16 +1,32 @@
 TEÓRICOS 
 07 – O que é um método em um código de um sistema de informação? 
+
+Resposta 07:
+Um método é um conjunto de instruções para efetuar uma determinada tarefa e ser reutilizado com diferentes valores a partir do parâmetro.
  
 08 – Por que é aconselhável dividir sistemas em métodos separados uns dos outros? 
+
+Resposta 08:
+Para evitar a repetição de código, o sistema fica mais simples de entender e mais rápido na execução.
  
 09  –  Defina  o  que  é  um  parâmetro  utilizado  em  um  método  Java.  Depois  de  definir,  explique  por  que  é  importante 
 termos parâmetros em métodos. 
  
+Resposta 09:
+Um parâmetro é um dado que é passado para o método para que ele possa trabalhar com diferentes valores a partir do valor passado na chamada do método.
+Na chamada do método é passado o valor e o método vai trabalhar com o valor passado.
+
 10 – O que acontece com um dado passado por parâmetro para um método após a execução deste método? 
- 
+
+Resposta 10:
+O método irá pegar o dado passado, e fará o que foi programado para fazer a partir daquele dado, podendo modificar ele ou somente verificar algo a partir
+do valor. Como por exemplo:
+Verificar se o ano é bissexto a partir da data, ou mostrar qual a média do que foi passado no parâmetro.
+
+
 11 – Para cada situação abaixo, cite estruturas de dados que  você utilizaria em sistemas de informação que precisam 
 destes dados para resolver o problema. Observe o exemplo para dar suas respostas: 
- 
+
 EXEMPLO: Um praticante realiza uma série de exercícios em sua academia a cada dia da semana. 
 RESP: Cada entidade praticante pode ter um vetor ou lista estática com os dias da semana (que é um dado conhecido 
 e  imutável).  Cada  dia  da  semana  conterá  uma  fila  de  exercícios  a  serem  feitos,  assumindo  que  a  ordem  deles  é 
@@ -19,6 +35,11 @@ importante.
 b) Uma oficina mecânica realiza diversos serviços em automóveis. Cada automóvel pode ter recebido muitos serviços 
 ao  longo  de  sua  existência.  Um  automóvel  está  sempre  associado  a  um  proprietário,  que  pode  ser  pessoa  física  ou 
 jurídica (empresa). 
+Resposta:
+Utilizaria um vetor representando o proprietário contendo uma lista que em cada posição teria um dado específico do cliente.
+A primeira posição armazenaria uma lista com o número de carros do cliente, a segunda se o cliente é pessoa física ou jurídica, 
+a terceira lista as datas das ultimas manutenções, a quarta qual manutenção foi feitar seguindo as datas 
+e a ultima qual funcionário fez a manutenção seguindo a ordem das datas da lista de manutenção.
  
 c)  Um  candidato  possui  uma  série  de  habilidades  para  se candidatar a  vagas  de  emprego.  Cada  vaga  tem  suas 
 habilidades específicas exigidas e deve possuir um conjunto de candidatos hábeis, destacando aquele que 
