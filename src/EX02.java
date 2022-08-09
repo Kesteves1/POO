@@ -43,7 +43,7 @@ public class EX02 {
      * @param array
      * @return
      */
-    static int[] sumNeighbors(int[] array){
+    static int[] sumNeighbors(int[] array) {
         int j = 0, tamanhoArr = array.length;
 
         if  (array.length % 2 == 0) { // <- É Par
